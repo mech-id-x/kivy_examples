@@ -1,0 +1,23 @@
+Button:
+    size_hint: (1, .5)
+    font_size: 32
+    text: "Show Records"
+    on_press: app.show_records()
+
+
+BoxLayout:
+	orientation: "horizontal"
+	size: root.height, root.width
+
+TextInput:
+	id: word_input
+	multiline: False
+	size_hint: (1, .5)
+
+Label:
+	id: word_label
+	text_size: self.size
+	halign: "center"
+	valign: "middle"
+	text: "Enter A Name"
+	font_size: 32
