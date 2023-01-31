@@ -1,0 +1,88 @@
+from kivy.lang import Builder
+from kivymd.app import MDApp
+
+MDBoxLayout:
+MDFloatLayout:
+    orientation: 'vertical'
+
+MDRectangleFlatButton:
+    text: "ALERT POPUP!"
+    pos_hint: {'center_x': .5, 'center_y': .5}
+    on_release: app.show_alert_dialog()
+
+MDLabel:
+    id: my_label
+    text: "Some Stuff"
+    pos_hint: {'center_x': .95, 'center_y': .4} 
+    halign: "center"
+    halign: "center"
+	valign: "middle"
+
+MDRaisedButton:
+	text: "Open Time Picker"
+	pos_hint: {'center_x': .5, 'center_y': .5}
+	on_release: app.show_time_picker()
+
+MDFloatingActionButtonSpeedDial:
+    data: app.data
+    root_button_anim: True
+    #Color stuff
+    #label_text_color: 1,0,0,1 # Text color
+    #bg_color_stack_button: 1,0,0,1 # bg of icon
+    #bg_color_root_button: 1,0,0,1 # speed dial bg
+    #color_icon_root_button: 1,0,0,1 # speed dial text color
+    #color_icon_stack_button: 1,0,0,1 # icond text color
+    #bg_hint_color: 1,0,0,1 icon bgcolor
+
+    #Pushing the buttons
+    callback: app.callback
+
+            # Open or Close
+    on_open: app.open()
+    on_close: app.close()
+
+
+MDToolbar:
+    title: "Our Top Toolbar"
+    left_action_items: [["menu"]]
+    right_action_items: [["dots-vertical"]]
+    md_bg_color: .2,.2,.2,1
+    specific_text_color: 1,1,1,1
+
+MDBottomAppBar:
+    MDToolbar:
+        icon: 'git'
+        left_action_items: [["menu", lambda x: app.presser()]]
+        title: "Bottom Menu"
+        type: 'bottom'
+        #mode: "free-end"
+        mode: 'end'
+        #mode: 'center'
+        #mode: 'free-center'
+        # Click The Button
+        on_action_button: app.presser()
+
+
+"""Vse ukaze zmeraj napiši def presser(self): self.root.ids.my_label.text = "You Pressed It!!!""""
+
+VSTAVLJANJE ZA IKONE V MENIU - ČE NE DELUJE BOTTOM UPORABI UPPER
+MDBottomNavigation:
+    #color stuff
+    #panel_color: 0,0,1,1
+
+MDBottomNavigationItem:
+    name: 'screen 2'
+    text: "Youtube"
+    icon: 'youtube'
+MDScreen
+ScrollView
+MDList:
+    OneListListItem:
+        id: item 1 2 3 4 5 5 z5.....
+        text: "some text"
+        on_release: app.presser(self, "item1 2 3 4 556...")
+
+Splitter:
+    sizable_from: 'bottom'
+    min_size: 1
+    max_size: r1.width
